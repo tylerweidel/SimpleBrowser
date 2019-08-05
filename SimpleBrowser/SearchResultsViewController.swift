@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SearchResultsViewController.swift
 //  SimpleBrowser
 //
 //  Created by Weidel, Tyler on 8/5/19.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SearchResultsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
-
-
+    
 }
-

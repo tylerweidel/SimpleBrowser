@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3F05677022F88D0A0075A5EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05676F22F88D0A0075A5EE /* AppDelegate.swift */; };
-		3F05677222F88D0A0075A5EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05677122F88D0A0075A5EE /* ViewController.swift */; };
+		3F05677222F88D0A0075A5EE /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05677122F88D0A0075A5EE /* BrowserViewController.swift */; };
 		3F05677522F88D0A0075A5EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F05677322F88D0A0075A5EE /* Main.storyboard */; };
 		3F05677722F88D0D0075A5EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F05677622F88D0D0075A5EE /* Assets.xcassets */; };
 		3F05677A22F88D0D0075A5EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F05677822F88D0D0075A5EE /* LaunchScreen.storyboard */; };
 		3F05678522F88D0D0075A5EE /* SimpleBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05678422F88D0D0075A5EE /* SimpleBrowserTests.swift */; };
 		3F05679022F88D0D0075A5EE /* SimpleBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05678F22F88D0D0075A5EE /* SimpleBrowserUITests.swift */; };
+		3F05679F22F88EEC0075A5EE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F05679E22F88EEC0075A5EE /* WebKit.framework */; };
+		3F0567A122F899350075A5EE /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A022F899350075A5EE /* SearchResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		3F05676C22F88D0A0075A5EE /* SimpleBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F05676F22F88D0A0075A5EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F05677122F88D0A0075A5EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F05677122F88D0A0075A5EE /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		3F05677422F88D0A0075A5EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F05677622F88D0D0075A5EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F05677922F88D0D0075A5EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		3F05678B22F88D0D0075A5EE /* SimpleBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F05678F22F88D0D0075A5EE /* SimpleBrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBrowserUITests.swift; sourceTree = "<group>"; };
 		3F05679122F88D0D0075A5EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F05679E22F88EEC0075A5EE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3F0567A022F899350075A5EE /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F05679F22F88EEC0075A5EE /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,7 @@
 				3F05678322F88D0D0075A5EE /* SimpleBrowserTests */,
 				3F05678E22F88D0D0075A5EE /* SimpleBrowserUITests */,
 				3F05676D22F88D0A0075A5EE /* Products */,
+				3F05679D22F88EEC0075A5EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,8 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				3F05676F22F88D0A0075A5EE /* AppDelegate.swift */,
-				3F05677122F88D0A0075A5EE /* ViewController.swift */,
+				3F05677122F88D0A0075A5EE /* BrowserViewController.swift */,
 				3F05677322F88D0A0075A5EE /* Main.storyboard */,
+				3F0567A022F899350075A5EE /* SearchResultsViewController.swift */,
 				3F05677622F88D0D0075A5EE /* Assets.xcassets */,
 				3F05677822F88D0D0075A5EE /* LaunchScreen.storyboard */,
 				3F05677B22F88D0D0075A5EE /* Info.plist */,
@@ -123,6 +130,14 @@
 				3F05679122F88D0D0075A5EE /* Info.plist */,
 			);
 			path = SimpleBrowserUITests;
+			sourceTree = "<group>";
+		};
+		3F05679D22F88EEC0075A5EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F05679E22F88EEC0075A5EE /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +271,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F05677222F88D0A0075A5EE /* ViewController.swift in Sources */,
+				3F05677222F88D0A0075A5EE /* BrowserViewController.swift in Sources */,
+				3F0567A122F899350075A5EE /* SearchResultsViewController.swift in Sources */,
 				3F05677022F88D0A0075A5EE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

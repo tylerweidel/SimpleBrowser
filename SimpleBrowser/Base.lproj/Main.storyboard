@@ -1,24 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Browser View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BrowserViewController" customModule="SimpleBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmn-2M-iA5" userLabel="Search View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dXY-WA-fPu" userLabel="Search Field">
+                                        <rect key="frame" x="20" y="15" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dXY-WA-fPu" firstAttribute="top" secondItem="Wmn-2M-iA5" secondAttribute="top" constant="15" id="aey-xk-ak0"/>
+                                    <constraint firstAttribute="height" constant="60" id="bvw-xf-dpB"/>
+                                    <constraint firstItem="dXY-WA-fPu" firstAttribute="leading" secondItem="Wmn-2M-iA5" secondAttribute="leading" constant="20" id="fwd-mb-mKz"/>
+                                    <constraint firstAttribute="bottom" secondItem="dXY-WA-fPu" secondAttribute="bottom" constant="15" id="kH9-7Y-eIu"/>
+                                    <constraint firstAttribute="trailing" secondItem="dXY-WA-fPu" secondAttribute="trailing" constant="20" id="lNo-5n-oC3"/>
+                                </constraints>
+                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="da6-2G-quA">
+                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Wmn-2M-iA5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WKm-pE-oNU"/>
+                            <constraint firstItem="da6-2G-quA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="f3c-iY-rhk"/>
+                            <constraint firstItem="Wmn-2M-iA5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hPV-Vh-UfN"/>
+                            <constraint firstItem="Wmn-2M-iA5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hk9-T2-XwB"/>
+                            <constraint firstItem="da6-2G-quA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oKa-an-EZ7"/>
+                            <constraint firstItem="da6-2G-quA" firstAttribute="top" secondItem="Wmn-2M-iA5" secondAttribute="bottom" id="ptf-ca-7pv"/>
+                            <constraint firstAttribute="bottom" secondItem="da6-2G-quA" secondAttribute="bottom" id="tZf-Rm-ZzG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xM1-Nl-P8d"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="6XF-CH-c2G" id="LSX-hO-ajA"/>
+                        <outlet property="searchField" destination="dXY-WA-fPu" id="hoY-1c-tZl"/>
+                        <outlet property="webView" destination="da6-2G-quA" id="t8r-vm-F0j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="6XF-CH-c2G">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="nzP-ht-xVa"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="u9y-Mb-dc6"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="Xb1-Fj-ZwO"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="52P-UJ-lBd"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
