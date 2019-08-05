@@ -29,5 +29,26 @@ class BrowserViewController: UIViewController {
 
 extension BrowserViewController: UITextFieldDelegate {
     
+    // Show SearchResultsViewController when textFieldDidBeginEditing is called
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        //
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let text = textField.text ?? ""
+        guard let stringRange = Range(range, in: text) else { return false }
+        let typedText = text.replacingCharacters(in: stringRange, with: string)
+        
+        // Fire network call off here
+        print(typedText)
+        return true
+    }
+    
 }
 
