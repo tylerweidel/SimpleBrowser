@@ -12,7 +12,7 @@ struct SearchResult: Codable {
     var query: String
     var results: [String]
     
-    // Because our expected json has no keys, we have to use a custom init to try decode the unkeyed values
+    // Because our expected json has no keys, we have to use a custom init to try to decode the unkeyed values
     init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()
         query = try container.decode(String.self)

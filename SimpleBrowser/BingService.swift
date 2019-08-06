@@ -15,7 +15,6 @@ class BingService: NSObject {
     }
     
     typealias Handler = (Result<SearchResult, Error>) -> Void
-    private let apiURL = "​https://api.bing.com/osjson.aspx"
     
     private var urlSession: URLSession?
     private var dataTask: URLSessionDataTask?

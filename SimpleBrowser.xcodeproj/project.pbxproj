@@ -12,12 +12,13 @@
 		3F05677522F88D0A0075A5EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F05677322F88D0A0075A5EE /* Main.storyboard */; };
 		3F05677722F88D0D0075A5EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F05677622F88D0D0075A5EE /* Assets.xcassets */; };
 		3F05677A22F88D0D0075A5EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F05677822F88D0D0075A5EE /* LaunchScreen.storyboard */; };
-		3F05678522F88D0D0075A5EE /* SimpleBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05678422F88D0D0075A5EE /* SimpleBrowserTests.swift */; };
 		3F05679022F88D0D0075A5EE /* SimpleBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05678F22F88D0D0075A5EE /* SimpleBrowserUITests.swift */; };
 		3F05679F22F88EEC0075A5EE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F05679E22F88EEC0075A5EE /* WebKit.framework */; };
-		3F0567A122F899350075A5EE /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A022F899350075A5EE /* SearchResultsViewController.swift */; };
+		3F0567A122F899350075A5EE /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A022F899350075A5EE /* SearchResultsTableViewController.swift */; };
 		3F0567A322F8A96F0075A5EE /* BingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A222F8A96F0075A5EE /* BingService.swift */; };
 		3F0567A522F8AA6E0075A5EE /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A422F8AA6E0075A5EE /* SearchResult.swift */; };
+		3F0567A722F9B17D0075A5EE /* BrowserViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A622F9B17D0075A5EE /* BrowserViewControllerTests.swift */; };
+		3F0567A922F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A822F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,15 +47,16 @@
 		3F05677922F88D0D0075A5EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F05677B22F88D0D0075A5EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F05678022F88D0D0075A5EE /* SimpleBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F05678422F88D0D0075A5EE /* SimpleBrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBrowserTests.swift; sourceTree = "<group>"; };
 		3F05678622F88D0D0075A5EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F05678B22F88D0D0075A5EE /* SimpleBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F05678F22F88D0D0075A5EE /* SimpleBrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBrowserUITests.swift; sourceTree = "<group>"; };
 		3F05679122F88D0D0075A5EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F05679E22F88EEC0075A5EE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		3F0567A022F899350075A5EE /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		3F0567A022F899350075A5EE /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		3F0567A222F8A96F0075A5EE /* BingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingService.swift; sourceTree = "<group>"; };
 		3F0567A422F8AA6E0075A5EE /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		3F0567A622F9B17D0075A5EE /* BrowserViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewControllerTests.swift; sourceTree = "<group>"; };
+		3F0567A822F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +111,7 @@
 			children = (
 				3F05676F22F88D0A0075A5EE /* AppDelegate.swift */,
 				3F05677122F88D0A0075A5EE /* BrowserViewController.swift */,
-				3F0567A022F899350075A5EE /* SearchResultsViewController.swift */,
+				3F0567A022F899350075A5EE /* SearchResultsTableViewController.swift */,
 				3F0567A222F8A96F0075A5EE /* BingService.swift */,
 				3F0567A422F8AA6E0075A5EE /* SearchResult.swift */,
 				3F05677322F88D0A0075A5EE /* Main.storyboard */,
@@ -123,8 +125,9 @@
 		3F05678322F88D0D0075A5EE /* SimpleBrowserTests */ = {
 			isa = PBXGroup;
 			children = (
-				3F05678422F88D0D0075A5EE /* SimpleBrowserTests.swift */,
+				3F0567A622F9B17D0075A5EE /* BrowserViewControllerTests.swift */,
 				3F05678622F88D0D0075A5EE /* Info.plist */,
+				3F0567A822F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift */,
 			);
 			path = SimpleBrowserTests;
 			sourceTree = "<group>";
@@ -280,7 +283,7 @@
 				3F05677222F88D0A0075A5EE /* BrowserViewController.swift in Sources */,
 				3F0567A322F8A96F0075A5EE /* BingService.swift in Sources */,
 				3F0567A522F8AA6E0075A5EE /* SearchResult.swift in Sources */,
-				3F0567A122F899350075A5EE /* SearchResultsViewController.swift in Sources */,
+				3F0567A122F899350075A5EE /* SearchResultsTableViewController.swift in Sources */,
 				3F05677022F88D0A0075A5EE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +292,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F05678522F88D0D0075A5EE /* SimpleBrowserTests.swift in Sources */,
+				3F0567A722F9B17D0075A5EE /* BrowserViewControllerTests.swift in Sources */,
+				3F0567A922F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

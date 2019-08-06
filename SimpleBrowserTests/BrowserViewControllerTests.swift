@@ -1,15 +1,14 @@
 //
-//  SimpleBrowserTests.swift
+//  BrowserViewControllerTests.swift
 //  SimpleBrowserTests
 //
-//  Created by Weidel, Tyler on 8/5/19.
+//  Created by Weidel, Tyler on 8/6/19.
 //  Copyright © 2019 Tyler Weidel. All rights reserved.
 //
 
 import XCTest
-@testable import SimpleBrowser
 
-class SimpleBrowserTests: XCTestCase {
+class BrowserViewControllerTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

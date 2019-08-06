@@ -22,15 +22,14 @@ class SearchResultsTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-    }
-    
     func update(searchResult: SearchResult?) {
         self.searchResult = searchResult
     }
+    
+}
+
+extension SearchResultsTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -53,5 +52,4 @@ class SearchResultsTableViewController: UITableViewController {
         // reset searchResult after tapping on a cell to reset next time typing in search
         self.searchResult = nil
     }
-    
 }

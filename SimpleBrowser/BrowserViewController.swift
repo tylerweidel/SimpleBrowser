@@ -151,4 +151,3 @@ extension BrowserViewController: SearchResultsDelegate {
         loadWebPage(using: searchResult)
     }
 }
-
