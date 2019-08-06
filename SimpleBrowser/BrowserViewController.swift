@@ -18,6 +18,17 @@ class BrowserViewController: UIViewController {
         super.viewDidLoad()
 
         setupSearchField()
+        
+        let urlSession = URLSession(configuration: .default)
+        
+        BingService(urlSession: urlSession).getSearchResults(using: "fire") { (result) in
+            switch result {
+            case .success(let searchResult):
+                print(searchResult)
+            case .failure(let error):
+                print("Failed to fetch results:", error)
+            }
+        }
     }
 
     private func setupSearchField() {
@@ -45,7 +56,7 @@ extension BrowserViewController: UITextFieldDelegate {
         guard let stringRange = Range(range, in: text) else { return false }
         let typedText = text.replacingCharacters(in: stringRange, with: string)
         
-        // Fire network call off here
+        // Fire network call off here, remember to cancel previous network call so we arent wasting data
         print(typedText)
         return true
     }

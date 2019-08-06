@@ -19,26 +19,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmn-2M-iA5" userLabel="Search View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dXY-WA-fPu" userLabel="Search Field">
-                                        <rect key="frame" x="20" y="15" width="374" height="30"/>
+                                        <rect key="frame" x="20" y="10" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="dXY-WA-fPu" firstAttribute="top" secondItem="Wmn-2M-iA5" secondAttribute="top" constant="15" id="aey-xk-ak0"/>
-                                    <constraint firstAttribute="height" constant="60" id="bvw-xf-dpB"/>
+                                    <constraint firstAttribute="height" constant="50" id="bvw-xf-dpB"/>
+                                    <constraint firstItem="dXY-WA-fPu" firstAttribute="centerY" secondItem="Wmn-2M-iA5" secondAttribute="centerY" id="elS-yv-6vT"/>
                                     <constraint firstItem="dXY-WA-fPu" firstAttribute="leading" secondItem="Wmn-2M-iA5" secondAttribute="leading" constant="20" id="fwd-mb-mKz"/>
-                                    <constraint firstAttribute="bottom" secondItem="dXY-WA-fPu" secondAttribute="bottom" constant="15" id="kH9-7Y-eIu"/>
                                     <constraint firstAttribute="trailing" secondItem="dXY-WA-fPu" secondAttribute="trailing" constant="20" id="lNo-5n-oC3"/>
                                 </constraints>
                             </view>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="da6-2G-quA">
-                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="802"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -76,6 +75,34 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--Search Results Table View Controller-->
+        <scene sceneID="sBS-Ia-ruu">
+            <objects>
+                <tableViewController id="eY8-iD-eq6" customClass="SearchResultsTableViewController" customModule="SimpleBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="e0l-CW-SPW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DBl-if-JDH">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DBl-if-JDH" id="tHL-45-MJ3">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eY8-iD-eq6" id="dO5-J8-tDu"/>
+                            <outlet property="delegate" destination="eY8-iD-eq6" id="vas-ev-63i"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j9r-sP-Qrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="965" y="137"/>
         </scene>
     </scenes>
 </document>
