@@ -28,7 +28,7 @@ class SearchResultsTableViewController: UITableViewController {
 
     }
     
-    func update(searchResult: SearchResult) {
+    func update(searchResult: SearchResult?) {
         self.searchResult = searchResult
     }
     

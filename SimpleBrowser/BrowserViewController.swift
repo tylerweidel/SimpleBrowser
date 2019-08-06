@@ -70,8 +70,9 @@ class BrowserViewController: UIViewController {
     }
     
     private func hideSearchResults() {
+        // Hide search results and clear search result data
         searchResultsView.isHidden = true
-//        searchField.resignFirstResponder()
+        searchResultsTableViewController?.update(searchResult: nil)
     }
     
     private func loadWebPage(using query: String) {
@@ -83,14 +84,17 @@ class BrowserViewController: UIViewController {
         components.queryItems = [
             URLQueryItem(name: "q", value: query)
         ]
-        components.percentEncodedQuery = components.percentEncodedQuery?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         guard let url = components.url else {
+            showSearchError(with: NSError(domain: "Components Error", code: 0, userInfo: nil))
             return
         }
         
         let request = URLRequest(url: url)
         
         webView.load(request)
+        hideSearchResults()
+        searchField.text = query
+        searchField.resignFirstResponder()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -109,7 +113,7 @@ extension BrowserViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        hideSearchResults()
+        loadWebPage(using: textField.text ?? "")
         return true
     }
     
@@ -144,9 +148,7 @@ extension BrowserViewController: UITextFieldDelegate {
 
 extension BrowserViewController: SearchResultsDelegate {
     func touchedSearchResult(searchResult: String) {
-        hideSearchResults()
         loadWebPage(using: searchResult)
-        searchField.text = searchResult
     }
 }
 
