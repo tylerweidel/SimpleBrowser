@@ -44,15 +44,25 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4N9-yh-Iw2">
+                                <rect key="frame" x="0.0" y="94" width="414" height="802"/>
+                                <connections>
+                                    <segue destination="eY8-iD-eq6" kind="embed" id="qmO-O5-szr"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4N9-yh-Iw2" secondAttribute="bottom" id="0pJ-JN-8uh"/>
+                            <constraint firstItem="4N9-yh-Iw2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="72H-hY-RBb"/>
+                            <constraint firstItem="4N9-yh-Iw2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QP0-iz-OeU"/>
                             <constraint firstItem="Wmn-2M-iA5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WKm-pE-oNU"/>
                             <constraint firstItem="da6-2G-quA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="f3c-iY-rhk"/>
                             <constraint firstItem="Wmn-2M-iA5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hPV-Vh-UfN"/>
                             <constraint firstItem="Wmn-2M-iA5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hk9-T2-XwB"/>
                             <constraint firstItem="da6-2G-quA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oKa-an-EZ7"/>
                             <constraint firstItem="da6-2G-quA" firstAttribute="top" secondItem="Wmn-2M-iA5" secondAttribute="bottom" id="ptf-ca-7pv"/>
+                            <constraint firstItem="4N9-yh-Iw2" firstAttribute="top" secondItem="Wmn-2M-iA5" secondAttribute="bottom" id="rYv-7w-bRU"/>
                             <constraint firstAttribute="bottom" secondItem="da6-2G-quA" secondAttribute="bottom" id="tZf-Rm-ZzG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -61,6 +71,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="6XF-CH-c2G" id="LSX-hO-ajA"/>
                         <outlet property="searchField" destination="dXY-WA-fPu" id="hoY-1c-tZl"/>
+                        <outlet property="searchResultsView" destination="4N9-yh-Iw2" id="xkP-iV-GgV"/>
                         <outlet property="webView" destination="da6-2G-quA" id="t8r-vm-F0j"/>
                     </connections>
                 </viewController>
@@ -81,14 +92,14 @@
             <objects>
                 <tableViewController id="eY8-iD-eq6" customClass="SearchResultsTableViewController" customModule="SimpleBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="e0l-CW-SPW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DBl-if-JDH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchResultIdentifier" id="OSD-7w-AoN">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DBl-if-JDH" id="tHL-45-MJ3">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OSD-7w-AoN" id="nTf-tc-4KF">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -102,7 +113,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9r-sP-Qrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="965" y="137"/>
+            <point key="canvasLocation" x="965" y="138"/>
         </scene>
     </scenes>
 </document>
