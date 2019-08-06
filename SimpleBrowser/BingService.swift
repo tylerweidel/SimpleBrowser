@@ -18,15 +18,18 @@ class BingService: NSObject {
     private let apiURL = "​https://api.bing.com/osjson.aspx"
     
     private var urlSession: URLSession?
+    private var dataTask: URLSessionDataTask?
     
     func getSearchResults(using query: String, then handler: @escaping Handler) {
+        
+        dataTask?.cancel()
         
         var components = URLComponents()
         components.scheme = "https"
         components.host = "api.bing.com"
         components.path = "/osjson.aspx"
         components.queryItems = [
-            URLQueryItem(name: "query", value: query),
+            URLQueryItem(name: "query", value: query)
         ]
         components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
         
@@ -38,7 +41,7 @@ class BingService: NSObject {
         
         let request = URLRequest(url: url)
 
-        urlSession?.dataTask(with: request, completionHandler: { (data, response, error) in
+        dataTask = urlSession?.dataTask(with: request, completionHandler: { (data, response, error) in
             if let error = error {
                 handler(.failure(error))
                 return
@@ -53,6 +56,8 @@ class BingService: NSObject {
                 handler(.failure(jsonDecodingError))
             }
             
-        }).resume()
+        })
+        
+        dataTask?.resume()
     }
 }
