@@ -12,7 +12,6 @@
 		3F05677522F88D0A0075A5EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F05677322F88D0A0075A5EE /* Main.storyboard */; };
 		3F05677722F88D0D0075A5EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F05677622F88D0D0075A5EE /* Assets.xcassets */; };
 		3F05677A22F88D0D0075A5EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F05677822F88D0D0075A5EE /* LaunchScreen.storyboard */; };
-		3F05679022F88D0D0075A5EE /* SimpleBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05678F22F88D0D0075A5EE /* SimpleBrowserUITests.swift */; };
 		3F05679F22F88EEC0075A5EE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F05679E22F88EEC0075A5EE /* WebKit.framework */; };
 		3F0567A122F899350075A5EE /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A022F899350075A5EE /* SearchResultsTableViewController.swift */; };
 		3F0567A322F8A96F0075A5EE /* BingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A222F8A96F0075A5EE /* BingService.swift */; };
@@ -24,13 +23,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		3F05678122F88D0D0075A5EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3F05676422F88D0A0075A5EE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F05676B22F88D0A0075A5EE;
-			remoteInfo = SimpleBrowser;
-		};
-		3F05678C22F88D0D0075A5EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F05676422F88D0A0075A5EE /* Project object */;
 			proxyType = 1;
@@ -49,9 +41,6 @@
 		3F05677B22F88D0D0075A5EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F05678022F88D0D0075A5EE /* SimpleBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F05678622F88D0D0075A5EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F05678B22F88D0D0075A5EE /* SimpleBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F05678F22F88D0D0075A5EE /* SimpleBrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBrowserUITests.swift; sourceTree = "<group>"; };
-		3F05679122F88D0D0075A5EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F05679E22F88EEC0075A5EE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3F0567A022F899350075A5EE /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		3F0567A222F8A96F0075A5EE /* BingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingService.swift; sourceTree = "<group>"; };
@@ -77,13 +66,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3F05678822F88D0D0075A5EE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -92,7 +74,6 @@
 			children = (
 				3F05676E22F88D0A0075A5EE /* SimpleBrowser */,
 				3F05678322F88D0D0075A5EE /* SimpleBrowserTests */,
-				3F05678E22F88D0D0075A5EE /* SimpleBrowserUITests */,
 				3F05676D22F88D0A0075A5EE /* Products */,
 				3F05679D22F88EEC0075A5EE /* Frameworks */,
 			);
@@ -103,7 +84,6 @@
 			children = (
 				3F05676C22F88D0A0075A5EE /* SimpleBrowser.app */,
 				3F05678022F88D0D0075A5EE /* SimpleBrowserTests.xctest */,
-				3F05678B22F88D0D0075A5EE /* SimpleBrowserUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,15 +111,6 @@
 				3F05678622F88D0D0075A5EE /* Info.plist */,
 			);
 			path = SimpleBrowserTests;
-			sourceTree = "<group>";
-		};
-		3F05678E22F88D0D0075A5EE /* SimpleBrowserUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3F05678F22F88D0D0075A5EE /* SimpleBrowserUITests.swift */,
-				3F05679122F88D0D0075A5EE /* Info.plist */,
-			);
-			path = SimpleBrowserUITests;
 			sourceTree = "<group>";
 		};
 		3F05679D22F88EEC0075A5EE /* Frameworks */ = {
@@ -230,24 +201,6 @@
 			productReference = 3F05678022F88D0D0075A5EE /* SimpleBrowserTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3F05678A22F88D0D0075A5EE /* SimpleBrowserUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3F05679A22F88D0D0075A5EE /* Build configuration list for PBXNativeTarget "SimpleBrowserUITests" */;
-			buildPhases = (
-				3F05678722F88D0D0075A5EE /* Sources */,
-				3F05678822F88D0D0075A5EE /* Frameworks */,
-				3F05678922F88D0D0075A5EE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3F05678D22F88D0D0075A5EE /* PBXTargetDependency */,
-			);
-			name = SimpleBrowserUITests;
-			productName = SimpleBrowserUITests;
-			productReference = 3F05678B22F88D0D0075A5EE /* SimpleBrowserUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -262,10 +215,6 @@
 						CreatedOnToolsVersion = 10.3;
 					};
 					3F05677F22F88D0D0075A5EE = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = 3F05676B22F88D0A0075A5EE;
-					};
-					3F05678A22F88D0D0075A5EE = {
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = 3F05676B22F88D0A0075A5EE;
 					};
@@ -286,7 +235,6 @@
 			targets = (
 				3F05676B22F88D0A0075A5EE /* SimpleBrowser */,
 				3F05677F22F88D0D0075A5EE /* SimpleBrowserTests */,
-				3F05678A22F88D0D0075A5EE /* SimpleBrowserUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -303,13 +251,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3F05677E22F88D0D0075A5EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3F05678922F88D0D0075A5EE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -341,14 +282,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3F05678722F88D0D0075A5EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F05679022F88D0D0075A5EE /* SimpleBrowserUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -356,11 +289,6 @@
 			isa = PBXTargetDependency;
 			target = 3F05676B22F88D0A0075A5EE /* SimpleBrowser */;
 			targetProxy = 3F05678122F88D0D0075A5EE /* PBXContainerItemProxy */;
-		};
-		3F05678D22F88D0D0075A5EE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3F05676B22F88D0A0075A5EE /* SimpleBrowser */;
-			targetProxy = 3F05678C22F88D0D0075A5EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -580,46 +508,6 @@
 			};
 			name = Release;
 		};
-		3F05679B22F88D0D0075A5EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47Z55DXKV3;
-				INFOPLIST_FILE = SimpleBrowserUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = tylerweidel.SimpleBrowserUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SimpleBrowser;
-			};
-			name = Debug;
-		};
-		3F05679C22F88D0D0075A5EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47Z55DXKV3;
-				INFOPLIST_FILE = SimpleBrowserUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = tylerweidel.SimpleBrowserUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SimpleBrowser;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -646,15 +534,6 @@
 			buildConfigurations = (
 				3F05679822F88D0D0075A5EE /* Debug */,
 				3F05679922F88D0D0075A5EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3F05679A22F88D0D0075A5EE /* Build configuration list for PBXNativeTarget "SimpleBrowserUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3F05679B22F88D0D0075A5EE /* Debug */,
-				3F05679C22F88D0D0075A5EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
