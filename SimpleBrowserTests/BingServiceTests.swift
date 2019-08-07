@@ -14,6 +14,7 @@ class BingServiceTests: XCTestCase {
 
     func testGetSearchResultReturnsSuccessfully() {
 
+        // Create mock data for test...
         let query = "TestQuery"
         let jsonData: Data = """
                 ["TestQuery",
@@ -21,13 +22,16 @@ class BingServiceTests: XCTestCase {
                     "Test2",
                     "Test3"]]
             """.data(using: .utf8)!
-
+        
+        
         let componets = URLComponents.buildSearchResult(with: query)
+        
         guard let url = componets.url else {
             XCTFail("URL Components Failed")
             return
         }
         
+        // ...and add the test data in the URLProtocolMock.testURLs
         URLProtocolMock.testURLs = [url: jsonData]
 
         // Set up a configuration to use our mock
@@ -36,7 +40,7 @@ class BingServiceTests: XCTestCase {
         
         // Create the URLSession with the mock config
         let mockSession = URLSession(configuration: config)
-        // Initialize BingService using dependency injection to insert the mock session
+        // Initialize BingService using dependency injection to insert the mock session with fake return data
         let bingService = BingService(urlSession: mockSession)
 
         let expectation = XCTestExpectation(description: "Download and successfully decode test data")
@@ -54,7 +58,7 @@ class BingServiceTests: XCTestCase {
     }
     
     func testGetSearchResultReturnsError() {
-        // Do not set URLProtocolMock.testData to simulate receiving an error
+        // This test has no corresponding URLProtocolMock.testURLs, so it simulates receiving an error/no data
         
         // now set up a configuration to use our mock
         let config = URLSessionConfiguration.ephemeral
@@ -62,12 +66,12 @@ class BingServiceTests: XCTestCase {
         
         // and create the URLSession from that
         let mockSession = URLSession(configuration: config)
-        
+        // Initialize BingService using dependency injection to insert the mock session with fake return data
         let bingService = BingService(urlSession: mockSession)
         
         let expectation = XCTestExpectation(description: "Download no data and get an error")
         
-        bingService.getSearchResults(using: "") { (result) in
+        bingService.getSearchResults(using: "NoDataFromMockResponse") { (result) in
             var searchResult: SearchResult?
             do {
                 searchResult = try result.get()
