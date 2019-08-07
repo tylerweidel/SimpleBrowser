@@ -10,7 +10,7 @@ import UIKit
 
 class BingService: NSObject {
     
-    init(urlSession: URLSession) {
+    init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
     }
     
@@ -19,18 +19,19 @@ class BingService: NSObject {
     private var urlSession: URLSession?
     private var dataTask: URLSessionDataTask?
     
-    func getSearchResults(using query: String, then handler: @escaping Handler) {
-        
-        dataTask?.cancel()
-        
+    private var searchResultsComponents: URLComponents {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "api.bing.com"
         components.path = "/osjson.aspx"
-        components.queryItems = [
-            URLQueryItem(name: "query", value: query)
-        ]
-        components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+        return components
+    }
+    
+    func getSearchResults(using query: String, then handler: @escaping Handler) {
+                
+        dataTask?.cancel()
+        
+        let components = URLComponents.buildSearchResult(with: query)
         
         guard let url = components.url else {
             let error = NSError(domain: "Url Components Error", code: 0, userInfo: nil)
@@ -41,7 +42,9 @@ class BingService: NSObject {
         let request = URLRequest(url: url)
 
         dataTask = urlSession?.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let error = error {
+            // if error was from a canceled request, do not call handler
+            // because the request was canceled from the user typing before the previous request finished
+            if let error = error, error.localizedDescription != "cancelled" {
                 handler(.failure(error))
                 return
             }
@@ -58,5 +61,21 @@ class BingService: NSObject {
         })
         
         dataTask?.resume()
+    }
+    
+}
+
+extension URLComponents {
+    static func buildSearchResult(with query: String) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "api.bing.com"
+        components.path = "/osjson.aspx"
+        components.queryItems = [
+            URLQueryItem(name: "query", value: query)
+        ]
+        // handle plus sign in search results
+        components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+        return components
     }
 }

@@ -17,7 +17,7 @@ private let SearchResultIdentifier = "SearchResultIdentifier"
 class SearchResultsTableViewController: UITableViewController {
 
     weak var delegate: SearchResultsDelegate?
-    private var searchResult: SearchResult? {
+    private(set) var searchResult: SearchResult? {
         didSet {
             tableView.reloadData()
         }

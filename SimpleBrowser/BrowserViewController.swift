@@ -15,7 +15,7 @@ class BrowserViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var searchResultsView: UIView!
     
-    var urlSession: URLSession?
+    lazy var bingService = BingService()
     var searchResultsTableViewController: SearchResultsTableViewController? {
         didSet {
             setupSearchResultsTableViewController()
@@ -26,18 +26,13 @@ class BrowserViewController: UIViewController {
         super.viewDidLoad()
 
         setupSearchField()
-        setupURLSession()
     }
 
     private func setupSearchField() {
         searchField.placeholder = "Search"
         searchField.delegate = self
     }
-    
-    private func setupURLSession() {
-        urlSession = URLSession(configuration: .default)
-    }
-    
+
     private func setupSearchResultsTableViewController() {
         searchResultsTableViewController?.delegate = self
         hideSearchResults()
@@ -48,19 +43,20 @@ class BrowserViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
 
-        present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
-    private func fetchQuery(using query: String, then: @escaping ((SearchResult) -> Void)) {
+    private func fetchQuery(using query: String, then: @escaping ((SearchResult?) -> Void)) {
 
-        guard let urlSession = urlSession else { return }
-        BingService(urlSession: urlSession).getSearchResults(using: query) { [weak self] (result) in
+        bingService.getSearchResults(using: query) { [weak self] (result) in
             switch result {
             case .success(let searchResult):
                 then(searchResult)
             case .failure(let error):
-                print("Failed to fetch results:", error)
                 self?.showSearchError(with: error)
+                then(nil)
             }
         }
     }
@@ -85,7 +81,7 @@ class BrowserViewController: UIViewController {
             URLQueryItem(name: "q", value: query)
         ]
         guard let url = components.url else {
-            showSearchError(with: NSError(domain: "Components Error", code: 0, userInfo: nil))
+            showSearchError(with: NSError(domain: "Url Components Error", code: 0, userInfo: nil))
             return
         }
         

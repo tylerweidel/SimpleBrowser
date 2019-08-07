@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SearchResult: Codable {
+struct SearchResult: Codable, Equatable {
     var query: String
     var results: [String]
     
@@ -17,5 +17,10 @@ struct SearchResult: Codable {
         var container = try decoder.unkeyedContainer()
         query = try container.decode(String.self)
         results = try container.decode([String].self)
+    }
+    
+    init(query: String, results: [String]) {
+        self.query = query
+        self.results = results
     }
 }
