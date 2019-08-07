@@ -19,6 +19,7 @@
 		3F0567A522F8AA6E0075A5EE /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A422F8AA6E0075A5EE /* SearchResult.swift */; };
 		3F0567A722F9B17D0075A5EE /* BrowserViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A622F9B17D0075A5EE /* BrowserViewControllerTests.swift */; };
 		3F0567A922F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567A822F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift */; };
+		3F0567AB22F9B73A0075A5EE /* BingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0567AA22F9B73A0075A5EE /* BingServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		3F0567A422F8AA6E0075A5EE /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		3F0567A622F9B17D0075A5EE /* BrowserViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewControllerTests.swift; sourceTree = "<group>"; };
 		3F0567A822F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewControllerTests.swift; sourceTree = "<group>"; };
+		3F0567AA22F9B73A0075A5EE /* BingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				3F0567A622F9B17D0075A5EE /* BrowserViewControllerTests.swift */,
 				3F05678622F88D0D0075A5EE /* Info.plist */,
 				3F0567A822F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift */,
+				3F0567AA22F9B73A0075A5EE /* BingServiceTests.swift */,
 			);
 			path = SimpleBrowserTests;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0567A722F9B17D0075A5EE /* BrowserViewControllerTests.swift in Sources */,
+				3F0567AB22F9B73A0075A5EE /* BingServiceTests.swift in Sources */,
 				3F0567A922F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,6 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47Z55DXKV3;
 				INFOPLIST_FILE = SimpleBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,6 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47Z55DXKV3;
 				INFOPLIST_FILE = SimpleBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

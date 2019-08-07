@@ -7,27 +7,62 @@
 //
 
 import XCTest
+import WebKit
+
+@testable import SimpleBrowser
 
 class BrowserViewControllerTests: XCTestCase {
+    
+    var browserVC: BrowserViewController!
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        browserVC = BrowserViewController.mocked
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testInitialState() {
+        XCTAssertTrue(browserVC.searchResultsView.isHidden)
+        XCTAssertEqual(browserVC.searchField.text, "")
+    }
+    
+    func testSearchResultsShow() {
+        _ = browserVC.searchField.delegate?.textField?(browserVC.searchField, shouldChangeCharactersIn: NSRange(location: 0, length: 0), replacementString: "Test")
+        XCTAssertFalse(browserVC.searchResultsView.isHidden)
+    }
+    
+    func testSearchResultsHideWhenNoTextIsLeft() {
+        _ = browserVC.searchField.delegate?.textField?(browserVC.searchField, shouldChangeCharactersIn: NSRange(location: 0, length: 0), replacementString: "Test")
+        _ = browserVC.searchField.delegate?.textField?(browserVC.searchField, shouldChangeCharactersIn: NSRange(location: 0, length: 0), replacementString: "")
+        XCTAssertTrue(browserVC.searchResultsView.isHidden)
+    }
+    
+    func testSearchResultsShowWhenEditingSearchField() {
+        browserVC.searchField.delegate?.textFieldDidBeginEditing?(browserVC.searchField)
+        XCTAssertFalse(browserVC.searchResultsView.isHidden)
+    }
+    
+    func testSearchResultsHideWhenSearchFieldIsCleared() {
+        _ = browserVC.searchField.delegate?.textFieldShouldClear?(browserVC.searchField)
+        XCTAssertTrue(browserVC.searchResultsView.isHidden)
+    }
+    
+    func testSearchResultsClearDataWhenSearchFieldIsCleared() {
+        _ = browserVC.searchField.delegate?.textFieldShouldClear?(browserVC.searchField)
+        XCTAssertNil(browserVC.searchResultsTableViewController?.searchResult)
+    }
+    
+    func testWebViewLoadsCorrectURLFromQueryString() {
+        browserVC.searchField.text = "Test Test"
+        _ = browserVC.searchField.delegate?.textFieldShouldReturn?(browserVC.searchField)
+        XCTAssertEqual(browserVC.webView.url?.absoluteString, "https://www.bing.com/search?q=Test%20Test")
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+}
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+extension BrowserViewController {
+    class var mocked: BrowserViewController {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        let browserViewController = storyboard.instantiateInitialViewController() as! BrowserViewController
+        _ = browserViewController.view
+        return browserViewController
     }
-
 }
