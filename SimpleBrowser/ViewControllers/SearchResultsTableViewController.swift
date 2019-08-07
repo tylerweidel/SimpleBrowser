@@ -9,7 +9,8 @@
 import UIKit
 
 protocol SearchResultsDelegate: class {
-    func touchedSearchResult(searchResult: String)
+    /// This function passes the search suggestion tapped by the user
+    func tappedSearchResult(searchResult: String)
 }
 
 private let SearchResultIdentifier = "SearchResultIdentifier"
@@ -23,6 +24,10 @@ class SearchResultsTableViewController: UITableViewController {
         }
     }
 
+    /// The function that updates the table view
+    ///
+    /// - Parameters:
+    ///     - searchResult: The `SearchResult` to be passed in. Passing a non-optional value reloads the tableView with the searchResult data. Passing a nil value clears the tableView and reloads with zero rows
     func update(searchResult: SearchResult?) {
         self.searchResult = searchResult
     }
@@ -48,8 +53,8 @@ extension SearchResultsTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let searchResult = searchResult else { return }
-        delegate?.touchedSearchResult(searchResult: searchResult.results[indexPath.row])
-        // reset searchResult after tapping on a cell to reset next time typing in search
-        self.searchResult = nil
+        delegate?.tappedSearchResult(searchResult: searchResult.results[indexPath.row])
+        // Reset searchResult after tapping on a cell to reset next time typing in search
+        update(searchResult: nil)
     }
 }

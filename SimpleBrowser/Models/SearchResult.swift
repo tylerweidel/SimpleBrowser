@@ -19,6 +19,7 @@ struct SearchResult: Codable, Equatable {
         results = try container.decode([String].self)
     }
     
+    // Convenience init mostly used for testing purposes.
     init(query: String, results: [String]) {
         self.query = query
         self.results = results

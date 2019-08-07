@@ -19,16 +19,14 @@ class BingService: NSObject {
     private var urlSession: URLSession?
     private var dataTask: URLSessionDataTask?
     
-    private var searchResultsComponents: URLComponents {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = "api.bing.com"
-        components.path = "/osjson.aspx"
-        return components
-    }
-    
+    /// Calls bing search suggestion api and returns a list of suggestions based off the passed in query string
+    ///
+    /// - Parameters:
+    ///     - query: The query string to be suggested on
+    ///     - handler: The callback returning a `Result<SearchResult, Error>`
     func getSearchResults(using query: String, then handler: @escaping Handler) {
-                
+        
+        // Cancel any ongoing dataTask request to be more efficient as the user types and is expecting new results
         dataTask?.cancel()
         
         let components = URLComponents.buildSearchResult(with: query)
@@ -66,6 +64,10 @@ class BingService: NSObject {
 }
 
 extension URLComponents {
+    /// Convenience function for getting the bing search suggestion api components
+    ///
+    /// - Parameters:
+    ///     - query: The query string used when building the `queryItem` component
     static func buildSearchResult(with query: String) -> URLComponents {
         var components = URLComponents()
         components.scheme = "https"

@@ -33,6 +33,7 @@ class BrowserViewController: UIViewController {
         searchField.delegate = self
     }
 
+    // This gets called from the prepareForSegue setting the searchResultsTableViewController didSet
     private func setupSearchResultsTableViewController() {
         searchResultsTableViewController?.delegate = self
         hideSearchResults()
@@ -48,7 +49,8 @@ class BrowserViewController: UIViewController {
         }
     }
     
-    private func fetchQuery(using query: String, then: @escaping ((SearchResult?) -> Void)) {
+    /// Calls the BingService to get the search suggestions using the provided query and calls a completion handler with the `SearchResult`. If there is an error, an error dialog will show on the screen with the returned error message
+    private func fetchSearchResults(using query: String, then: @escaping ((SearchResult?) -> Void)) {
 
         bingService.getSearchResults(using: query) { [weak self] (result) in
             switch result {
@@ -71,8 +73,9 @@ class BrowserViewController: UIViewController {
         searchResultsTableViewController?.update(searchResult: nil)
     }
     
-    private func loadWebPage(using query: String) {
-        
+    /// Loads a bing search webpage using the passed in query string
+    private func loadBingSearch(using query: String) {
+        // Build webpage url using components
         var components = URLComponents()
         components.scheme = "https"
         components.host = "www.bing.com"
@@ -80,6 +83,7 @@ class BrowserViewController: UIViewController {
         components.queryItems = [
             URLQueryItem(name: "q", value: query)
         ]
+        
         guard let url = components.url else {
             showSearchError(with: NSError(domain: "Url Components Error", code: 0, userInfo: nil))
             return
@@ -103,13 +107,12 @@ class BrowserViewController: UIViewController {
 
 extension BrowserViewController: UITextFieldDelegate {
     
-    // Show SearchResultsViewController when textFieldDidBeginEditing is called
     func textFieldDidBeginEditing(_ textField: UITextField) {
         showSearchResults()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        loadWebPage(using: textField.text ?? "")
+        loadBingSearch(using: textField.text ?? "")
         return true
     }
     
@@ -132,7 +135,8 @@ extension BrowserViewController: UITextFieldDelegate {
             showSearchResults()
         }
         
-        fetchQuery(using: typedText) { [weak self] (result) in
+        // Fetch the search suggestions each time the user types and update the search results table view
+        fetchSearchResults(using: typedText) { [weak self] (result) in
             DispatchQueue.main.async {
                 self?.searchResultsTableViewController?.update(searchResult: result)
             }
@@ -143,7 +147,8 @@ extension BrowserViewController: UITextFieldDelegate {
 }
 
 extension BrowserViewController: SearchResultsDelegate {
-    func touchedSearchResult(searchResult: String) {
-        loadWebPage(using: searchResult)
+    // This delegate method is called when a user taps on a cell in the search results table view
+    func tappedSearchResult(searchResult: String) {
+        loadBingSearch(using: searchResult)
     }
 }
