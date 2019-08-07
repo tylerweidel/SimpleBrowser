@@ -111,14 +111,12 @@
 		3F05676E22F88D0A0075A5EE /* SimpleBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				3F05676F22F88D0A0075A5EE /* AppDelegate.swift */,
-				3F05677122F88D0A0075A5EE /* BrowserViewController.swift */,
-				3F0567A022F899350075A5EE /* SearchResultsTableViewController.swift */,
-				3F0567A222F8A96F0075A5EE /* BingService.swift */,
-				3F0567A422F8AA6E0075A5EE /* SearchResult.swift */,
-				3F05677322F88D0A0075A5EE /* Main.storyboard */,
+				3F0567AD22FA64F20075A5EE /* AppDelegate */,
+				3F0567AC22FA64DF0075A5EE /* ViewControllers */,
+				3F0567AE22FA64FA0075A5EE /* Models */,
+				3F0567AF22FA65030075A5EE /* Networking */,
+				3F0567B022FA65210075A5EE /* Storyboards */,
 				3F05677622F88D0D0075A5EE /* Assets.xcassets */,
-				3F05677822F88D0D0075A5EE /* LaunchScreen.storyboard */,
 				3F05677B22F88D0D0075A5EE /* Info.plist */,
 			);
 			path = SimpleBrowser;
@@ -128,9 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				3F0567A622F9B17D0075A5EE /* BrowserViewControllerTests.swift */,
-				3F05678622F88D0D0075A5EE /* Info.plist */,
 				3F0567A822F9B1A40075A5EE /* SearchResultsTableViewControllerTests.swift */,
 				3F0567AA22F9B73A0075A5EE /* BingServiceTests.swift */,
+				3F05678622F88D0D0075A5EE /* Info.plist */,
 			);
 			path = SimpleBrowserTests;
 			sourceTree = "<group>";
@@ -150,6 +148,48 @@
 				3F05679E22F88EEC0075A5EE /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F0567AC22FA64DF0075A5EE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F05677122F88D0A0075A5EE /* BrowserViewController.swift */,
+				3F0567A022F899350075A5EE /* SearchResultsTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3F0567AD22FA64F20075A5EE /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3F05676F22F88D0A0075A5EE /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3F0567AE22FA64FA0075A5EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F0567A422F8AA6E0075A5EE /* SearchResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3F0567AF22FA65030075A5EE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3F0567A222F8A96F0075A5EE /* BingService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3F0567B022FA65210075A5EE /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3F05677322F88D0A0075A5EE /* Main.storyboard */,
+				3F05677822F88D0D0075A5EE /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
