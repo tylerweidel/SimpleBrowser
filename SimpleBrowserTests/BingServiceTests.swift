@@ -30,16 +30,16 @@ class BingServiceTests: XCTestCase {
         
         URLProtocolMock.testURLs = [url: jsonData]
 
-        // now set up a configuration to use our mock
+        // Set up a configuration to use our mock
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [URLProtocolMock.self]
         
-        // and create the URLSession from that
+        // Create the URLSession with the mock config
         let mockSession = URLSession(configuration: config)
-        
+        // Initialize BingService using dependency injection to insert the mock session
         let bingService = BingService(urlSession: mockSession)
 
-        let expectation = XCTestExpectation(description: "Download and decode test data")
+        let expectation = XCTestExpectation(description: "Download and successfully decode test data")
 
         bingService.getSearchResults(using: query) { (result) in
             if let searchResult = try? result.get() {

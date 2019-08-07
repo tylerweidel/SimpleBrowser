@@ -24,12 +24,12 @@ class BrowserViewControllerTests: XCTestCase {
         XCTAssertEqual(browserVC.searchField.text, "")
     }
     
-    func testSearchResultsShow() {
+    func testSearchResultsShowWhenTextIsTypedInSearchField() {
         _ = browserVC.searchField.delegate?.textField?(browserVC.searchField, shouldChangeCharactersIn: NSRange(location: 0, length: 0), replacementString: "Test")
         XCTAssertFalse(browserVC.searchResultsView.isHidden)
     }
     
-    func testSearchResultsHideWhenNoTextIsLeft() {
+    func testSearchResultsHideWhenNoTextIsLeftInSearchField() {
         _ = browserVC.searchField.delegate?.textField?(browserVC.searchField, shouldChangeCharactersIn: NSRange(location: 0, length: 0), replacementString: "Test")
         _ = browserVC.searchField.delegate?.textField?(browserVC.searchField, shouldChangeCharactersIn: NSRange(location: 0, length: 0), replacementString: "")
         XCTAssertTrue(browserVC.searchResultsView.isHidden)
