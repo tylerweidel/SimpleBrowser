@@ -114,7 +114,7 @@ extension BrowserViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        hideSearchResults()
+        searchResultsTableViewController?.update(searchResult: nil)
         return true
     }
     
